@@ -13,7 +13,14 @@ class CreateAdminUsersTable extends Migration
      */
     public function up()
     {
-        //
+	    Schema::create('ot_admin_users', function (Blueprint $table) {
+		    $table->increments('id');
+		    $table->string('name');
+		    $table->string('email')->unique();
+		    $table->string('password');
+		    $table->rememberToken();
+		    $table->timestamps();
+	    });
     }
 
     /**
@@ -23,6 +30,6 @@ class CreateAdminUsersTable extends Migration
      */
     public function down()
     {
-        //
+	    Schema::dropIfExists('ot_admin_users');
     }
 }

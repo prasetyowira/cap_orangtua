@@ -4,6 +4,16 @@
  * Date: 19/12/17
  * Time: 11.46
  */
-Route::get('orangtua', function(){
-	echo 'Hello from the calculator package!';
+Route::group(['middleware' => 'web','prefix' => 'orangtua'], function () {
+	Route::get('/', 'Ariwira\Orangtua\Http\Controllers\AdmissionController@index')->name('orangtua.index');
+	Route::post('/store', 'Ariwira\Orangtua\Http\Controllers\AdmissionController@store')->name('orangtua.store');
+	Route::get('/thankyou', 'Ariwira\Orangtua\Http\Controllers\AdmissionController@thankyou')->name('orangtua.thankyou');
+
+	Route::get('/login', 'Ariwira\Orangtua\Http\Controllers\LoginController@showLoginForm')->name('orangtua.login');
+	Route::post('/login', 'Ariwira\Orangtua\Http\Controllers\LoginController@login');
+
+//Route::group(['middleware' => 'auth', 'prefix' => 'orangtua/admin'], function () {
+	Route::group(['prefix' => 'admin'], function () {
+		Route::get('dashboard', 'Ariwira\Orangtua\Http\Controllers\AdminDashboardController@index')->name('orangtua.admin.dashboard');
+	});
 });
