@@ -31,6 +31,9 @@ class OrangTuaServiceProvider extends ServiceProvider
 	    $this->publishes([
 		    __DIR__.'/../config/orangtua.php' => config_path('orangtua.php')
 	    ], 'config');
+	    $this->publishes([
+		    __DIR__.'/../database/migrations' => database_path('migrations'),
+	    ], 'orangtua-migrations');
 	    $kernel->prependMiddleware(Authenticate::class);
 	    Orangtua::auth(function ($request) {
 		    return Auth::guard('orangtua')->check();
