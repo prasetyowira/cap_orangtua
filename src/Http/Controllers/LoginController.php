@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Ariwira\Orangtua\Orangtua;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {

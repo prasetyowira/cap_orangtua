@@ -48,6 +48,7 @@ class OrangTuaServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerController();
+        $this->registerModel();
     }
 
     protected function registerController()
@@ -56,5 +57,10 @@ class OrangTuaServiceProvider extends ServiceProvider
 	    $this->app->make('Ariwira\Orangtua\Http\Controllers\AdminCampaignController');
 	    $this->app->make('Ariwira\Orangtua\Http\Controllers\AdminDashboardController');
 	    $this->app->make('Ariwira\Orangtua\Http\Controllers\AdmissionController');
+    }
+
+    protected function registerModel()
+    {
+	    $this->app->make('Ariwira\Orangtua\Model\OrangtuaUsers');
     }
 }
