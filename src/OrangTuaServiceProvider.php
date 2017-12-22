@@ -16,9 +16,6 @@ class OrangTuaServiceProvider extends ServiceProvider
      */
     public function boot(Kernel $kernel)
     {
-	    $this->mergeConfigFrom(
-		    __DIR__ . '/../config/auth.php', 'auth'
-	    );
 	    $this->loadViewsFrom(__DIR__.'/../resources/views', 'orangtua');
 	    $this->loadRoutesFrom(__DIR__.'/route.php');
 	    $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
@@ -47,8 +44,25 @@ class OrangTuaServiceProvider extends ServiceProvider
      */
     public function register()
     {
+    	$this->mergeConfig();
         $this->registerController();
         $this->registerModel();
+    }
+
+    protected function mergeConfig()
+    {
+	    $this->mergeConfigFrom(
+		    __DIR__ . '/../config/auth.php', 'auth'
+	    );
+	    $this->mergeConfigFrom(
+		    __DIR__ . '/../config/guards.php', 'auth.guards'
+	    );
+	    $this->mergeConfigFrom(
+		    __DIR__ . '/../config/provider.php', 'auth.providers'
+	    );
+	    $this->mergeConfigFrom(
+		    __DIR__ . '/../config/password.php', 'auth.passwords'
+	    );
     }
 
     protected function registerController()
@@ -61,6 +75,6 @@ class OrangTuaServiceProvider extends ServiceProvider
 
     protected function registerModel()
     {
-	    $this->app->make('Ariwira\Orangtua\Model\OrangtuaUsers');
+//	    $this->app->make('Ariwira\Orangtua\Model\OrangtuaUsers');
     }
 }
