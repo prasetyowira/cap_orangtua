@@ -1,4 +1,6 @@
-'orangtua_users' => [
-	'driver' => 'eloquent',
-	'model' => \Ariwira\Orangtua\Model\OrangtuaUsers::class,
-],
+[
+    'orangtua_users' => [
+        'driver' => 'eloquent',
+        'model' => \Ariwira\Orangtua\Model\OrangtuaUsers::class,
+    ],
+]

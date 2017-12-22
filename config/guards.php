@@ -1,4 +1,6 @@
-'orangtua' => [
-	'driver' => 'session',
-	'provider' => 'orangtua_users',
+[
+    'orangtua' => [
+        'driver' => 'session',
+        'provider' => 'orangtua_users',
+    ]
 ]

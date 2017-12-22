@@ -1,5 +1,5 @@
 <?php
-return [
+[
 	'guards' => [
 		'orangtua' => [
 			'driver' => 'session',
