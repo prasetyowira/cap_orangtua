@@ -1,6 +1,7 @@
-[
+<?php
+return [
     'orangtua_users' => [
         'driver' => 'eloquent',
-        'model' => \Ariwira\Orangtua\Model\OrangtuaUsers::class,
+        'model' => \Ariwira\Orangtua\Models\OrangtuaUsers::class,
     ],
-]
+];

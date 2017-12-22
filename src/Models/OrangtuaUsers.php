@@ -1,6 +1,6 @@
 <?php
 
-namespace Ariwira\Orangtua\Model;
+namespace Ariwira\Orangtua\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;

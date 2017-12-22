@@ -52,9 +52,6 @@ class OrangTuaServiceProvider extends ServiceProvider
     protected function mergeConfig()
     {
 	    $this->mergeConfigFrom(
-		    __DIR__ . '/../config/auth.php', 'auth'
-	    );
-	    $this->mergeConfigFrom(
 		    __DIR__ . '/../config/guards.php', 'auth.guards'
 	    );
 	    $this->mergeConfigFrom(
@@ -75,6 +72,7 @@ class OrangTuaServiceProvider extends ServiceProvider
 
     protected function registerModel()
     {
-//	    $this->app->make('Ariwira\Orangtua\Model\OrangtuaUsers');
+	    $this->app->make('Ariwira\Orangtua\Models\OrangtuaUsers');
+	    $this->app->make('Ariwira\Orangtua\Models\OrangtuaAdmission');
     }
 }
